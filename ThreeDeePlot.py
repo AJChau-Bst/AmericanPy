@@ -2,11 +2,15 @@ import importlib
 importlib.import_module('mpl_toolkits.mplot3d').Axes3D
 from mpl_toolkits.mplot3d import Axes3D
 import matplotlib.pyplot as plt
+import csv
 
 
 
 fig = plt.figure()
 ax = fig.add_subplot(111, projection='3d')
+
+with open('OPR.csv') as csv_file:
+    csv_reader = csv.reader(csv_file, delimiter=';')
 
 x =[1,2,3,4,5,6,7,8,9,10]
 y =[5,6,2,3,13,4,1,2,4,8]
