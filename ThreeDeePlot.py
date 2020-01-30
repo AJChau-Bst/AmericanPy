@@ -4,35 +4,34 @@ from mpl_toolkits.mplot3d import Axes3D
 import matplotlib.pyplot as plt
 import csv
 
-listTeam = []
-listOPR = []
-listDPR = []
-listCCWM = []
-#fig = plt.figure()
-#ax = fig.add_subplot(111, projection='3d')
+Team = []
+OPR = []
+DPR = []
+CCWM = []
 
-path = "C:\Users\A\Documents\GitHub\AmericanPy\2003.csv"
-with open(path) as f:
+fig = plt.figure()
+
+ax = fig.add_subplot(111, projection='3d')
+
+with open('2003.csv') as f:
     reader = csv.reader(f, delimiter=',')
     for row in reader:
-        listTeam.append(row[0])
-        listOPR.append(row[1])
-        listDPR.append(row[2])
-        listCCWM.append(row[2])
+        Team.append(row[0])
+        OPR.append(row[1])
+        DPR.append(row[2])
+        CCWM.append(row[2])
 
 
-#x = firstColumn
-#y =[5,6,2,3,13,4,1,2,4,8]
-#z =[2,3,3,3,5,7,9,11,9,10]
+#x = [int(i) for i in OPR]
+#y = [int(i) for i in DPR]
+#z = [int(i) for i in CCWM]
 
+ax.scatter(x, y, z, c='r', marker='o')
 
+ax.set_xlabel('X Label')
+ax.set_ylabel('Y Label')
+ax.set_zlabel('Z Label')
+plt.show()
 
-#ax.scatter(x, y, z, c='r', marker='o')
-
-#ax.set_xlabel('X Label')
-#ax.set_ylabel('Y Label')
-#ax.set_zlabel('Z Label')
-
-#plt.show()
-
-print(listTeam)
+#Need to turn list into integers/float to be able to plot them. The first possible issue could be the commas and ' ' marks, which we can remove. Otherwise, storing in a list may
+#(cont) not be the best idea. 
