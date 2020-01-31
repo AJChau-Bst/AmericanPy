@@ -26,7 +26,7 @@ with open('2003.csv') as f:
     y = [int(i) for i in DPR]
     z = [int(i) for i in CCWM]
 
-    ax.scatter(x, y, z, c='r', marker='o')
+    ax.scatter(x, y, z, c='#FF5F72', marker='*')
 
     ax.set_xlabel('OPR')
     ax.set_ylabel('DPR')
