@@ -12,23 +12,24 @@ CCWM = []
 fig = plt.figure()
 
 ax = fig.add_subplot(111, projection='3d')
-del OPR[0]
-del Team[0]
-del DPR[0]
-del CCWM[0]
+
+Team = Team[1:]
+OPR= OPR[1:]
+DPR = DPR[1:]
+CCWM = CCWM[1:]
 
 with open('2003.csv') as f:
     reader = csv.reader(f, delimiter=',')
     for row in reader:
         Team.append(row[0])
-        OPR.append(float(row[1]))
-        DPR.append(float(row[2]))
-        CCWM.append(float(row[3]))
+        OPR.append(row[1])
+        DPR.append(row[2])
+        CCWM.append(row[3])
 
 
-    x = [int(i) for i in OPR]
-    y = [int(i) for i in DPR]
-    z = [int(i) for i in CCWM]
+    x = OPR
+    y = DPR
+    z = CCWM
 
     ax.scatter(x, y, z, s=3, c='r', marker='*')
 
