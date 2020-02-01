@@ -9,35 +9,50 @@ OPR = []
 DPR = []
 CCWM = []
 
+request = input("team number")
+request = "frc" + request
+
 fig = plt.figure()
 
 ax = fig.add_subplot(111, projection='3d')
 
-Team = Team[1:]
-OPR= OPR[1:]
-DPR = DPR[1:]
-CCWM = CCWM[1:]
 
 with open('2003.csv') as f:
     reader = csv.reader(f, delimiter=',')
+
     for row in reader:
         Team.append(row[0])
         OPR.append(row[1])
         DPR.append(row[2])
         CCWM.append(row[3])
+    Team.remove(Team[0])
+    OPR.remove(OPR[0])
+    DPR.remove(DPR[0])
+    CCWM.remove(CCWM[0])
+
+    OPR = [ float(x) for x in OPR ]
+    DPR = [ float(x) for x in DPR ]
+    CCWM = [ float(x) for x in CCWM ]
 
 
-    x = OPR
-    y = DPR
-    z = CCWM
+x = OPR
+y = DPR
+z = CCWM
 
-    ax.scatter(x, y, z, s=3, c='r', marker='*')
+ax.scatter(x, y, z, s=3, c='r', marker='*')
 
-    ax.set_xlabel('OPR')
-    ax.set_ylabel('DPR')
-    ax.set_zlabel('CCWM')
-    plt.show()
+exprime = Team.index(request)
 
-#print(OPR)
-    #Need to turn list into integers/float to be able to plot them. The first possible issue could be the commas and ' ' marks, which we can remove. Otherwise, storing in a list may
-    #(cont) not be the best idea. 
+#identify the OPR DPR and CCWM position
+
+a = OPR[exprime]
+b = DPR[exprime]
+c = DPR[exprime]
+
+ax.scatter(a, b, c, s=3, c='b', marker='s')
+
+
+ax.set_xlabel('OPR')
+ax.set_ylabel('DPR')
+ax.set_zlabel('CCWM')
+plt.show()
