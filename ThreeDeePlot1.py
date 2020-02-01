@@ -4,20 +4,25 @@ from mpl_toolkits.mplot3d import Axes3D
 import matplotlib.pyplot as plt
 import csv
 
+#Lists!
 Team = []
 OPR = []
 DPR = []
 CCWM = []
 
+#Requests
 request = input("team number")
 request = "frc" + request
 
+yearrequest = input("year you want data from")
+
+#basic plot stuff
 fig = plt.figure()
 
 ax = fig.add_subplot(111, projection='3d')
 
-
-with open('2003.csv') as f:
+#puts stuff in lists
+with open(yearrequest + '.csv') as f:
     reader = csv.reader(f, delimiter=',')
 
     for row in reader:
@@ -25,20 +30,23 @@ with open('2003.csv') as f:
         OPR.append(row[1])
         DPR.append(row[2])
         CCWM.append(row[3])
+    #remove the header
     Team.remove(Team[0])
     OPR.remove(OPR[0])
     DPR.remove(DPR[0])
     CCWM.remove(CCWM[0])
 
+    #turn everything into an integer for plotting
     OPR = [ float(x) for x in OPR ]
     DPR = [ float(x) for x in DPR ]
     CCWM = [ float(x) for x in CCWM ]
 
-
+#defining to plot
 x = OPR
 y = DPR
 z = CCWM
 
+#actualy plotting now
 ax.scatter(x, y, z, s=3, c='r', marker='*')
 
 exprime = Team.index(request)
@@ -47,7 +55,11 @@ exprime = Team.index(request)
 
 a = OPR[exprime]
 b = DPR[exprime]
-c = DPR[exprime]
+c = CCWM[exprime]
+
+#print OPR, DPR and CCWM of specified team
+print("OPR, DPR, CCWM")
+print(a, b, c)
 
 ax.scatter(a, b, c, s=3, c='b', marker='s')
 
