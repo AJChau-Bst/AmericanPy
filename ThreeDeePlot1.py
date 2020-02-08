@@ -61,7 +61,7 @@ c = CCWM[exprime]
 print("OPR, DPR, CCWM")
 print(a, b, c)
 
-ax.scatter(a, b, c, s=3, c='b', marker='s')
+ax.scatter(a, b, c, s=10, c='b', marker='s')
 
 
 ax.set_xlabel('OPR')
