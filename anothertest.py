@@ -1,35 +1,26 @@
-from tkinter import *
-import importlib
-importlib.import_module('mpl_toolkits.mplot3d').Axes3D
-from mpl_toolkits.mplot3d import Axes3D
-import matplotlib.pyplot as plt
-import csv
+import tkinter
 
-
-#get some basic windows stuff in first
 window = Tk()
 window.title("OPR v DPR v CCWM")
-window.geometry('800x600')
+window.geometry('800x600'
 
-#Team Number Enter
 def hi():
-        print(startEntry.get())
+    print(startEntry.get())
 
 
 window=tkinter.Tk()
 
-startLabel =window.Label(window,text="Enter Star: ")
-startEntry=window.Entry(window)
+startLabel =tkinter.Label(window,text="Enter Star: ")
+startEntry=tkinter.Entry(window)
 
 
 startLabel.pack()
 startEntry.pack()
 
-plotButton= window.Button(window,text="plot", command=hi)
+plotButton= tkinter.Button(window,text="plot", command=hi)
 
 plotButton.pack()
-
-
+        
 #Enter in the Year
 
 variable = StringVar(window)
