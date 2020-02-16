@@ -11,24 +11,6 @@ window = Tk()
 window.title("OPR v DPR v CCWM")
 window.geometry('800x600')
 
-#Team Number Enter
-def hi():
-        print(startEntry.get())
-
-
-window=tkinter.Tk()
-
-startLabel =window.Label(window,text="Enter Star: ")
-startEntry=window.Entry(window)
-
-
-startLabel.pack()
-startEntry.pack()
-
-plotButton= window.Button(window,text="plot", command=hi)
-
-plotButton.pack()
-
 
 #Enter in the Year
 
@@ -37,15 +19,38 @@ variable.set("2019") # default value
 w = OptionMenu(window, variable, "2002", "2003", "2019")
 w.pack()
 
+#Lists!
+Team = []
+OPR = []
+DPR = []
+CCWM = []
 
 #call a function after okay button
 def ok():
     year = variable.get()
-    print (year)
+    print(year)
+
+    yearrequest = str(year)
+
+
 
 
 #ok button
 button = Button(window, text="Year OK", command=ok)
 button.pack()
+
+with open(year + '.csv') as f:
+    reader = csv.reader(f, delimiter=',')
+
+    for row in reader:
+        Team.append(row[0])
+        OPR.append(row[1])
+        DPR.append(row[2])
+        CCWM.append(row[3])
+    #remove the header
+    Team.remove(Team[0])
+    OPR.remove(OPR[0])
+    DPR.remove(DPR[0])
+    CCWM.remove(CCWM[0])
 
 window.mainloop()
