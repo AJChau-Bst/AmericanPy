@@ -100,8 +100,8 @@ dprblue = float(DPRBlueone) + float(DPRBluetwo) + float(DPRBluethree)
 dprred = float(DPRRedone) + float(DPRRedtwo) + float(DPRRedthree)
 
 
-redscore = (oprred + dprblue)*.5
-bluescore = (oprblue + dprred)*.5
+redscore = (oprred + dprblue)*.6
+bluescore = (oprblue + dprred)*.6
 
 if bluescore > redscore:
     difference = bluescore - redscore
