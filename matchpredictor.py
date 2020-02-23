@@ -101,17 +101,23 @@ dprblue = float(DPRBlueone) + float(DPRBluetwo) + float(DPRBluethree)
 dprred = float(DPRRedone) + float(DPRRedtwo) + float(DPRRedthree)
 
 
-redscore = oprred + dprblue
-bluescore = oprblue + dprred
+redscore = (oprred + dprblue)*.6
+bluescore = (oprblue + dprred)*.6
 
 if bluescore > redscore:
+    difference = bluescore - redscore
     print ("blue wins, total OPR = " + str(oprblue))
     print ("total DPR = " + str(dprblue))
     print ("red loses, total OPR = " + str(oprred))
     print ("total DPR = " + str(dprred))
+    print("win margin = " + str(difference))
 elif redscore > bluescore:
+    difference = redscore - bluescore
     print ("red wins, total OPR =" + str(oprred))
     print ("total DPR = " + str(dprred))
     print ("blue loses, total OPR = " + str(oprblue))
     print ("total DPR= " + str(dprblue))
-  
+    print("win margin = " + str(difference))
+
+print("red score =" + str(redscore))
+print("blue score =" + str(bluescore))
